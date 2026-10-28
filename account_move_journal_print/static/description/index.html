@@ -1,0 +1,299 @@
+<!-- Print Journal Entries by Awins -->
+<link rel="stylesheet" type="text/css" href="https://apps.odoo.com/web/assets/1/4b2cae2/web.assets_frontend.min.css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<!--
+  Tokens (inline, no <style> allowed on the store):
+  ink #14212b &#183; slate #51606e &#183; rule #dde3e9 &#183; panel #f2f4f7 &#183; paper #ffffff &#183; accent #0f766e &#183; accent tint #ccf2ea
+  display: 'Bricolage Grotesque' &#183; body: 'Source Sans 3' &#183; mono: 'IBM Plex Mono' (each with a system fallback)
+-->
+
+<div class="container x_wd" style="max-width: 1120px; padding-top: 2.5rem; padding-bottom: 3rem; color: #14212b; font-family: 'Source Sans 3', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 17px; line-height: 1.6;">
+
+    <!-- 1. MASTHEAD: breadcrumb, name, one sentence, statusbar, framed screen + facts sheet -->
+    <div style="font-family: 'IBM Plex Mono', SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.78rem; color: #51606e; margin-bottom: 1.25rem;">
+        Apps <span style="color: #b3bdc7;">/</span> Awins <span style="color: #b3bdc7;">/</span> <span style="color: #14212b;">account_move_journal_print</span>
+    </div>
+
+    <div class="row g-4 align-items-end" style="margin-bottom: 1.75rem;">
+        <div class="col-lg-8" style="min-width: 0;">
+            <h1 style="font-family: 'Bricolage Grotesque', 'Segoe UI', Helvetica, Arial, sans-serif; font-weight: 800; font-size: 3rem; line-height: 1.05; letter-spacing: -0.03em; margin: 0 0 0.9rem 0; color: #14212b;">
+                Print Journal Entries</h1>
+            <p style="font-size: 1.2rem; line-height: 1.55; color: #2c3a46; margin: 0; max-width: 40rem;">
+                A printable voucher for any journal entry: lines, analytic split, totals, a balance check and signature boxes, one entry per page.</p>
+        </div>
+        <div class="col-lg-4">
+            <!-- statusbar: the three stages explained under "Getting started" -->
+            <div style="font-size: 0.82rem; font-weight: 600; line-height: 2.2;">
+                <span style="display: inline-block; background-color: #f2f4f7; color: #51606e; padding: 0.35rem 0.9rem; border-radius: 999px;">Install</span><span style="color: #8a97a4; margin: 0 0.35rem;">&#8250;</span><span style="display: inline-block; background-color: #0f766e; color: #ffffff; padding: 0.35rem 0.9rem; border-radius: 999px;">Use</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4" style="margin-bottom: 4rem;">
+        <div class="col-lg-8" style="min-width: 0;">
+            <div style="border: 1px solid #dde3e9; border-radius: 8px; background-color: #ffffff;">
+                <div style="background-color: #f2f4f7; border-bottom: 1px solid #dde3e9; border-radius: 8px 8px 0 0; padding: 0.45rem 0.9rem; font-family: 'IBM Plex Mono', SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.74rem; color: #51606e;">
+                    /report/pdf/account_move_journal_print.report_journal_entry/42</div>
+                <img src="images/masthead.png" alt="Print Journal Entries in the Odoo backend" class="img-fluid d-block w-100"
+                    onerror="this.src='https://placehold.co/1280x720/f2f4f7/8a97a4?text=Screenshot';" />
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <!-- facts sheet -->
+            <div style="background-color: #f2f4f7; border-radius: 8px; padding: 1.25rem 1.35rem; font-size: 0.92rem;">
+                <img src="icon.png" alt="" style="width: 48px; height: 48px; border-radius: 10px; margin-bottom: 1rem;" onerror="this.style.display='none';" />
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tr><td style="font-family: 'IBM Plex Mono', SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: #51606e; padding: 0.3rem 0.75rem 0.3rem 0; vertical-align: top; width: 7.2rem;">Odoo</td><td style="font-weight: 600; padding: 0.3rem 0; vertical-align: top;">16.0, 17.0, 18.0, 19.0, 20.0</td></tr>
+                    <tr><td style="font-family: 'IBM Plex Mono', SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: #51606e; padding: 0.3rem 0.75rem 0.3rem 0; vertical-align: top; width: 7.2rem;">Editions</td><td style="font-weight: 600; padding: 0.3rem 0; vertical-align: top;">Community, Enterprise</td></tr>
+                    <!-- LANG --><tr><td style="font-family: 'IBM Plex Mono', SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: #51606e; padding: 0.3rem 0.75rem 0.3rem 0; vertical-align: top; width: 7.2rem;">Languages</td><td style="font-weight: 600; padding: 0.3rem 0; vertical-align: top;">English, French, Spanish, German, Italian, Portuguese (Brazil), Dutch, Chinese (Simplified), Japanese, Arabic, Russian</td></tr><!-- /LANG -->
+                    <tr><td style="font-family: 'IBM Plex Mono', SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: #51606e; padding: 0.3rem 0.75rem 0.3rem 0; vertical-align: top; width: 7.2rem;">Works with</td><td style="font-weight: 600; padding: 0.3rem 0; vertical-align: top;">Invoicing / Accounting</td></tr>
+                    <tr><td style="font-family: 'IBM Plex Mono', SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: #51606e; padding: 0.3rem 0.75rem 0.3rem 0; vertical-align: top; width: 7.2rem;">Licence</td><td style="font-weight: 600; padding: 0.3rem 0; vertical-align: top;">LGPL-3, free</td></tr>
+                    <tr><td style="font-family: 'IBM Plex Mono', SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: #51606e; padding: 0.3rem 0.75rem 0.3rem 0; vertical-align: top; width: 7.2rem;">Tests</td><td style="font-weight: 600; padding: 0.3rem 0; vertical-align: top;">10 automated, run on every version</td></tr>
+                    <tr><td style="font-family: 'IBM Plex Mono', SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: #51606e; padding: 0.3rem 0.75rem 0.3rem 0; vertical-align: top; width: 7.2rem;">Module</td><td style="font-family: 'IBM Plex Mono', SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.82rem; padding: 0.3rem 0; vertical-align: top;">account_<wbr>move_<wbr>journal_<wbr>print</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. THE SITUATION -->
+    <div class="row g-4" style="margin-bottom: 4rem;">
+        <div class="col-lg-3">
+            <h2 style="font-family: 'Bricolage Grotesque', 'Segoe UI', Helvetica, Arial, sans-serif; font-weight: 600; font-size: 1.05rem; color: #0f766e; margin: 0.35rem 0 0 0;">The situation</h2>
+        </div>
+        <div class="col-lg-8" style="min-width: 0;">
+            <p style="font-size: 1.12rem; margin: 0 0 1rem 0; max-width: 40rem;">Odoo prints invoices, bills and payment receipts. A miscellaneous entry, an accrual or a year-end provision has no PDF at all, so when your auditor or manager wants a signed voucher, someone ends up copying the lines into a spreadsheet.</p>
+            <p style="font-size: 1.12rem; margin: 0; max-width: 40rem;">This module adds a Journal Entry report to the Print menu of every entry. It shows exactly what was booked, tells you whether debit and credit match, and leaves room for the people who check and approve it to sign.</p>
+        </div>
+    </div>
+
+    <!-- 3. WHAT IT ADDS: one row per real addition; tag = the real field / menu / report name -->
+    <div class="row g-4" style="margin-bottom: 4rem;">
+        <div class="col-lg-3">
+            <h2 style="font-family: 'Bricolage Grotesque', 'Segoe UI', Helvetica, Arial, sans-serif; font-weight: 600; font-size: 1.05rem; color: #0f766e; margin: 0.35rem 0 0 0;">What it adds</h2>
+        </div>
+        <div class="col-lg-9" style="min-width: 0;">
+            
+            <div class="row g-2" style="padding: 1.1rem 0; border-top: 1px solid #dde3e9;">
+                <div class="col-md-4">
+                    <span style="display: inline-block; font-family: 'IBM Plex Mono', SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.78rem; background-color: #ccf2ea; color: #14212b; padding: 0.2rem 0.55rem; border-radius: 4px;">Print &#8250; Journal Entry</span>
+                </div>
+                <div class="col-md-8" style="min-width: 0;">
+                    <div style="font-weight: 600; margin-bottom: 0.2rem;">A report on every entry</div>
+                    <div style="color: #2c3a46;">Available on the entry form and on every journal entry, invoice and bill list. The PDF is named after the entry, so <span style="font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem;">MISC/2026/09/0003</span> saves as <span style="font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem;">Journal Entry - MISC_2026_09_0003.pdf</span>.</div>
+                    <div style="color: #51606e; font-size: 0.9rem; margin-top: 0.35rem;"><span style="font-weight: 600;">Without it:</span> no PDF for entries that aren't invoices or payments.</div>
+                </div>
+            </div>
+            
+            <div class="row g-2" style="padding: 1.1rem 0; border-top: 1px solid #dde3e9;">
+                <div class="col-md-4">
+                    <span style="display: inline-block; font-family: 'IBM Plex Mono', SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.78rem; background-color: #ccf2ea; color: #14212b; padding: 0.2rem 0.55rem; border-radius: 4px;">account / partner / label / analytic</span>
+                </div>
+                <div class="col-md-8" style="min-width: 0;">
+                    <div style="font-weight: 600; margin-bottom: 0.2rem;">The lines as booked</div>
+                    <div style="color: #2c3a46;">Account code and name, partner, label, debit and credit in company currency. The analytic split prints with account names and percentages, one per line, so a 25/75 cost split is visible on paper.</div>
+                </div>
+            </div>
+            
+            <div class="row g-2" style="padding: 1.1rem 0; border-top: 1px solid #dde3e9;">
+                <div class="col-md-4">
+                    <span style="display: inline-block; font-family: 'IBM Plex Mono', SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.78rem; background-color: #ccf2ea; color: #14212b; padding: 0.2rem 0.55rem; border-radius: 4px;">Amount in Currency</span>
+                </div>
+                <div class="col-md-8" style="min-width: 0;">
+                    <div style="font-weight: 600; margin-bottom: 0.2rem;">Foreign currency column</div>
+                    <div style="color: #2c3a46;">Appears only when a line is in another currency than the company's, next to the debit and credit it was converted to. Entries in your own currency keep a narrow table.</div>
+                </div>
+            </div>
+            
+            <div class="row g-2" style="padding: 1.1rem 0; border-top: 1px solid #dde3e9;">
+                <div class="col-md-4">
+                    <span style="display: inline-block; font-family: 'IBM Plex Mono', SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.78rem; background-color: #ccf2ea; color: #14212b; padding: 0.2rem 0.55rem; border-radius: 4px;">&#10003; Balanced</span>
+                </div>
+                <div class="col-md-8" style="min-width: 0;">
+                    <div style="font-weight: 600; margin-bottom: 0.2rem;">Balance check</div>
+                    <div style="color: #2c3a46;">A bold total row, then a line that says Balanced, or Unbalanced with the exact difference. Useful when you print drafts for review before posting.</div>
+                </div>
+            </div>
+            
+            <div class="row g-2" style="padding: 1.1rem 0; border-top: 1px solid #dde3e9;">
+                <div class="col-md-4">
+                    <span style="display: inline-block; font-family: 'IBM Plex Mono', SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.78rem; background-color: #ccf2ea; color: #14212b; padding: 0.2rem 0.55rem; border-radius: 4px;">DRAFT watermark</span>
+                </div>
+                <div class="col-md-8" style="min-width: 0;">
+                    <div style="font-weight: 600; margin-bottom: 0.2rem;">Status you can't miss</div>
+                    <div style="color: #2c3a46;">Posted entries get a green label. Drafts and cancelled entries get a red label and a large diagonal watermark, so nobody files a draft as final.</div>
+                </div>
+            </div>
+            
+            <div class="row g-2" style="padding: 1.1rem 0; border-top: 1px solid #dde3e9;">
+                <div class="col-md-4">
+                    <span style="display: inline-block; font-family: 'IBM Plex Mono', SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.78rem; background-color: #ccf2ea; color: #14212b; padding: 0.2rem 0.55rem; border-radius: 4px;">Prepared &#183; Checked &#183; Approved</span>
+                </div>
+                <div class="col-md-8" style="min-width: 0;">
+                    <div style="font-weight: 600; margin-bottom: 0.2rem;">Signature boxes</div>
+                    <div style="color: #2c3a46;">Prepared by is filled with the person who created the entry and when. Checked by and Approved by are left empty for handwritten signatures. A Printed by line records who printed it and at what time.</div>
+                </div>
+            </div>
+            
+            <div class="row g-2" style="padding: 1.1rem 0; border-top: 1px solid #dde3e9;">
+                <div class="col-md-4">
+                    <span style="display: inline-block; font-family: 'IBM Plex Mono', SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.78rem; background-color: #ccf2ea; color: #14212b; padding: 0.2rem 0.55rem; border-radius: 4px;">Journal Entry (Partner Language)</span>
+                </div>
+                <div class="col-md-8" style="min-width: 0;">
+                    <div style="font-weight: 600; margin-bottom: 0.2rem;">Print in the partner's language</div>
+                    <div style="color: #2c3a46;">A second report prints labels, dates and amounts in the partner's language, and falls back to yours when the entry has no partner.</div>
+                </div>
+            </div>
+            
+            <div class="row g-2" style="padding: 1.1rem 0; border-top: 1px solid #dde3e9;">
+                <div class="col-md-4">
+                    <span style="display: inline-block; font-family: 'IBM Plex Mono', SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.78rem; background-color: #ccf2ea; color: #14212b; padding: 0.2rem 0.55rem; border-radius: 4px;">list &#8250; select &#8250; Print</span>
+                </div>
+                <div class="col-md-8" style="min-width: 0;">
+                    <div style="font-weight: 600; margin-bottom: 0.2rem;">Mass printing</div>
+                    <div style="color: #2c3a46;">Select entries in any list and print once: one PDF, one entry per page.</div>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid #dde3e9;"></div>
+        </div>
+    </div>
+
+    <!-- 4. GETTING STARTED: the three statusbar stages, in order -->
+    <div style="margin-bottom: 4rem;">
+        <h2 style="font-family: 'Bricolage Grotesque', 'Segoe UI', Helvetica, Arial, sans-serif; font-weight: 800; font-size: 2rem; letter-spacing: -0.02em; margin: 0 0 2rem 0;">Getting started</h2>
+
+        <div class="row g-4" style="margin-bottom: 2.5rem;">
+            <div class="col-lg-3">
+                <span style="display: inline-block; background-color: #f2f4f7; color: #51606e; font-size: 0.82rem; font-weight: 600; padding: 0.35rem 0.9rem; border-radius: 999px;">Install</span>
+            </div>
+            <div class="col-lg-8" style="min-width: 0;">
+                <p style="margin: 0 0 0.5rem 0;">Open Apps, clear the Apps filter, search for Print Journal Entries and click Activate. It only needs Invoicing, which every accounting database already has.</p>
+                <code style="font-family: 'IBM Plex Mono', SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.8rem; color: #14212b; background-color: #f2f4f7; padding: 0.15rem 0.45rem; border-radius: 4px;">Apps &#8250; account_move_journal_print &#8250; Activate</code>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-3">
+                <span style="display: inline-block; background-color: #0f766e; color: #ffffff; font-size: 0.82rem; font-weight: 600; padding: 0.35rem 0.9rem; border-radius: 999px;">Use</span>
+            </div>
+            <div class="col-lg-9" style="min-width: 0;">
+                <p style="margin: 0 0 1.25rem 0; max-width: 40rem;">Open a journal entry, or tick several in Accounting &#8250; Journal Entries, then choose Print &#8250; Journal Entry. There is nothing to set up. The report uses your company's document layout.</p>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <img src="images/use_1.png" alt="Tick several entries in the list and print them as one PDF, one entry per page." class="img-fluid d-block w-100" style="border: 1px solid #dde3e9; border-radius: 8px;"
+                            onerror="this.src='https://placehold.co/1280x720/f2f4f7/8a97a4?text=Screen';" />
+                        <div style="font-size: 0.85rem; color: #51606e; margin-top: 0.5rem;">Tick several entries in the list and print them as one PDF, one entry per page.</div>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="images/use_2.png" alt="A draft entry prints with a red label and a diagonal DRAFT watermark." class="img-fluid d-block w-100" style="border: 1px solid #dde3e9; border-radius: 8px;"
+                            onerror="this.src='https://placehold.co/1280x720/f2f4f7/8a97a4?text=Screen';" />
+                        <div style="font-size: 0.85rem; color: #51606e; margin-top: 0.5rem;">A draft entry prints with a red label and a diagonal DRAFT watermark.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. FINE PRINT: questions this module really raises -->
+    <div style="background-color: #f2f4f7; border-radius: 12px; padding: 2.25rem 1.75rem; margin-bottom: 4rem;">
+        <h2 style="font-family: 'Bricolage Grotesque', 'Segoe UI', Helvetica, Arial, sans-serif; font-weight: 800; font-size: 2rem; letter-spacing: -0.02em; margin: 0 0 1.75rem 0;">Fine print</h2>
+        <div class="row g-4">
+            
+            <div class="col-md-6">
+                <div style="font-weight: 600; margin-bottom: 0.3rem;">Which entries can I print?</div>
+                <div style="color: #2c3a46; font-size: 0.97rem;">Every journal entry: miscellaneous entries, invoices, bills, payments and bank entries. Section and note lines are left out of the table.</div>
+            </div>
+            
+            <div class="col-md-6">
+                <div style="font-weight: 600; margin-bottom: 0.3rem;">Who can print it?</div>
+                <div style="color: #2c3a46; font-size: 0.97rem;">Anyone who can read the entry. The report adds no new access rights.</div>
+            </div>
+            
+            <div class="col-md-6">
+                <div style="font-weight: 600; margin-bottom: 0.3rem;">Does it change how entries are posted?</div>
+                <div style="color: #2c3a46; font-size: 0.97rem;">No. It only reads the entry to print it. Nothing is written to your journals, and uninstalling it removes the two reports and nothing else.</div>
+            </div>
+            
+            <div class="col-md-6">
+                <div style="font-weight: 600; margin-bottom: 0.3rem;">Where can I run it?</div>
+                <div style="color: #2c3a46; font-size: 0.97rem;">On Odoo.sh and on your own server, Community or Enterprise, versions 16.0 to 20.0. Odoo Online doesn't accept third-party modules.</div>
+            </div>
+            <div class="col-md-6">
+                <div style="font-weight: 600; margin-bottom: 0.3rem;">What doesn't it do?</div>
+                <div style="color: #2c3a46; font-size: 0.97rem;">It doesn't add an approval workflow or record who posted the entry; the signature boxes are for paper. Columns and layout are fixed, and there are no subtotals per currency.</div>
+            </div>
+            <div class="col-md-6">
+                <div style="font-weight: 600; margin-bottom: 0.3rem;">Can you adapt it for us?</div>
+                <div style="color: #2c3a46; font-size: 0.97rem;">Yes. Email <span style="font-weight: 600;">odoo.expert.111@gmail.com</span> with your Odoo version and what you'd like changed.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. LOG (release notes as a chatter thread, newest first) -->
+    <div class="row g-4" style="margin-bottom: 4rem;">
+        <div class="col-lg-3">
+            <h2 style="font-family: 'Bricolage Grotesque', 'Segoe UI', Helvetica, Arial, sans-serif; font-weight: 600; font-size: 1.05rem; color: #0f766e; margin: 0.35rem 0 0 0;">Log</h2>
+        </div>
+        <div class="col-lg-8" style="min-width: 0;">
+            <!-- LANG --><div style="border-left: 3px solid #0f766e; padding-left: 1rem; margin-bottom: 1.25rem;">
+                <div style="font-family: 'IBM Plex Mono', SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.8rem; color: #51606e;">20.0.1.0.0 &#183; Oct 2026</div>
+                <div style="color: #2c3a46;">Translated into ten languages besides English. Headings, totals and signature boxes print in the user's language, or in the partner's language with Journal Entry (Partner Language).</div>
+            </div><!-- /LANG -->
+            <div style="border-left: 3px solid #0f766e; padding-left: 1rem;">
+                <div style="font-family: 'IBM Plex Mono', SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.8rem; color: #51606e;">20.0.1.0.0 &#183; Oct 2026</div>
+                <div style="color: #2c3a46;">First release, published for Odoo 16.0 to 20.0.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. CONTACT -->
+    <div class="row g-4 align-items-center" style="border: 2px solid #14212b; border-radius: 12px; padding: 1.75rem 1.25rem; margin: 0 0 4rem 0;">
+        <div class="col-md-8" style="min-width: 0;">
+            <h2 style="font-family: 'Bricolage Grotesque', 'Segoe UI', Helvetica, Arial, sans-serif; font-weight: 800; font-size: 1.6rem; letter-spacing: -0.02em; margin: 0 0 0.5rem 0;">Need another column or a different layout?</h2>
+            <p style="color: #2c3a46; margin: 0 0 1rem 0;">Tell us what your auditor asks for and which Odoo version you run. We reply to every email.</p>
+            <a href="mailto:odoo.expert.111@gmail.com?subject=Print%20Journal%20Entries%20on%20Odoo%2020.0&body=Hi%20Awins%2C%0A%0AI%20run%20Print%20Journal%20Entries%20on%20Odoo%2020.0%20%28Community%20%2F%20Enterprise%2C%20on-premise%20%2F%20Odoo.sh%29.%0A%0AWhat%20I%20need%20help%20with%3A%0A%0A%0AThanks%2C%0A"
+                style="display: inline-block; background-color: #14212b; color: #ffffff; text-decoration: none; font-weight: 600; padding: 0.55rem 1.1rem; border-radius: 6px; font-size: 0.95rem;">Email odoo.expert.111@gmail.com</a>
+        </div>
+        <div class="col-md-4 text-md-end">
+            <img src="images/email_qr.png" alt="QR code: email Awins about this module" style="width: 168px; height: 168px;" onerror="this.style.display='none';" />
+        </div>
+    </div>
+
+    <!-- RECOMMENDATIONS:START (filled by awins-app/scripts/recommend.py; removed when < 3 other Awins apps) -->
+    <div style="margin-bottom: 4rem;">
+        <h2 style="font-family: 'Bricolage Grotesque', 'Segoe UI', Helvetica, Arial, sans-serif; font-weight: 800; font-size: 2rem; letter-spacing: -0.02em; margin: 0 0 1.5rem 0;">Also by Awins</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <a href="https://apps.odoo.com/apps/modules/20.0/account_pdc_cheque" target="_blank" style="display: block; text-decoration: none; color: #14212b;">
+                    <img src="images/rec_account_pdc_cheque.png" alt="Post-Dated Cheques" class="img-fluid d-block w-100" style="border-radius: 8px; margin-bottom: 0.6rem;"
+                        onerror="this.style.display='none';" />
+                    <span style="font-weight: 600;">Post-Dated Cheques</span>
+                    <span style="display: block; font-family: 'IBM Plex Mono', SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.72rem; color: #51606e;">account_pdc_cheque</span>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="https://apps.odoo.com/apps/modules/20.0/account_cheque_print_layout" target="_blank" style="display: block; text-decoration: none; color: #14212b;">
+                    <img src="images/rec_account_cheque_print_layout.png" alt="Cheque Printing Layouts" class="img-fluid d-block w-100" style="border-radius: 8px; margin-bottom: 0.6rem;"
+                        onerror="this.style.display='none';" />
+                    <span style="font-weight: 600;">Cheque Printing Layouts</span>
+                    <span style="display: block; font-family: 'IBM Plex Mono', SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.72rem; color: #51606e;">account_cheque_print_layout</span>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="https://apps.odoo.com/apps/modules/20.0/account_move_approval_levels" target="_blank" style="display: block; text-decoration: none; color: #14212b;">
+                    <img src="images/rec_account_move_approval_levels.png" alt="Invoice & Bill Approval Levels" class="img-fluid d-block w-100" style="border-radius: 8px; margin-bottom: 0.6rem;"
+                        onerror="this.style.display='none';" />
+                    <span style="font-weight: 600;">Invoice & Bill Approval Levels</span>
+                    <span style="display: block; font-family: 'IBM Plex Mono', SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.72rem; color: #51606e;">account_move_approval_levels</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- RECOMMENDATIONS:END -->
+
+    <!-- 8. COLOPHON -->
+    <div class="d-flex flex-wrap justify-content-between" style="border-top: 1px solid #dde3e9; padding-top: 1.25rem; font-size: 0.82rem; color: #51606e;">
+        <span><span style="font-family: 'Bricolage Grotesque', 'Segoe UI', Helvetica, Arial, sans-serif; font-weight: 800; color: #14212b;">Awins</span> builds small Odoo modules that do one job.</span>
+        <span style="font-family: 'IBM Plex Mono', SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.75rem;">account_move_journal_print &#183; 20.0.1.0.0</span>
+    </div>
+</div>
