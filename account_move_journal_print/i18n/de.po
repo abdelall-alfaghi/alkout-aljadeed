@@ -1,0 +1,211 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* account_move_journal_print
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-12 12:01+0000\n"
+"PO-Revision-Date: 2026-10-12 12:01+0000\n"
+"Last-Translator: Awins <odoo.expert.111@gmail.com>\n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. module: account_move_journal_print
+#: model:ir.module.module,description:base.module_account_move_journal_print
+msgid ""
+"\n"
+"Print Journal Entries\n"
+"=====================\n"
+"Odoo has no printable layout for a plain journal entry, yet auditors, managers and\n"
+"paper files still ask for a signed voucher. This module adds a \"Journal Entry\" PDF\n"
+"report to every journal entry, invoice and bill, ready for review and signature.\n"
+"\n"
+"Key Highlights:\n"
+"---------------\n"
+"* Journal Entry PDF in the Print menu of the form and of the list (mass print, one entry per page).\n"
+"* Header with company layout, entry number, date, journal, reference, partner and status.\n"
+"* Lines with account code and name, partner, label, analytic distribution, debit and credit.\n"
+"* Amount in foreign currency column, shown only when a line uses another currency.\n"
+"* Totals row plus a Balanced / Unbalanced control line with the difference.\n"
+"* Draft and cancelled entries get a watermark so they are never mistaken for posted ones.\n"
+"* Prepared by / Checked by / Approved by signature boxes, prepared-by user and print time.\n"
+"* Second report prints in the partner's language, no settings needed.\n"
+msgstr ""
+
+#. module: account_move_journal_print
+#: model:ir.actions.report,print_report_name:account_move_journal_print.action_report_journal_entry
+#: model:ir.actions.report,print_report_name:account_move_journal_print.action_report_journal_entry_partner_lang
+msgid "'Journal Entry - %s' % (object.name or 'Draft').replace('/', '_')"
+msgstr "'Journalbuchung - %s' % (object.name or 'Draft').replace('/', '_')"
+
+#. module: account_move_journal_print
+#: model_terms:ir.ui.view,arch_db:account_move_journal_print.report_journal_entry_document
+msgid ""
+"<span class=\"text-danger fw-bold\">✗ Unbalanced</span>\n"
+"                        <span class=\"text-muted\">: difference of</span>"
+msgstr ""
+"<span class=\"text-danger fw-bold\">✗ Nicht ausgeglichen</span>\n"
+"                        <span class=\"text-muted\">: Differenz von</span>"
+
+#. module: account_move_journal_print
+#: model_terms:ir.ui.view,arch_db:account_move_journal_print.report_journal_entry_document
+msgid ""
+"<span class=\"text-success fw-bold\">✓ Balanced</span>\n"
+"                        <span class=\"text-muted\">: total debit equals total credit.</span>"
+msgstr ""
+"<span class=\"text-success fw-bold\">✓ Ausgeglichen</span>\n"
+"                        <span class=\"text-muted\">: Summe Soll entspricht Summe Haben.</span>"
+
+#. module: account_move_journal_print
+#: model_terms:ir.ui.view,arch_db:account_move_journal_print.report_journal_entry_document
+msgid "<span>Journal Entry</span>"
+msgstr "<span>Journalbuchung</span>"
+
+#. module: account_move_journal_print
+#: model_terms:ir.ui.view,arch_db:account_move_journal_print.report_journal_entry_document
+msgid "<strong>Approved by</strong>"
+msgstr "<strong>Genehmigt von</strong>"
+
+#. module: account_move_journal_print
+#: model_terms:ir.ui.view,arch_db:account_move_journal_print.report_journal_entry_document
+msgid "<strong>Checked by</strong>"
+msgstr "<strong>Geprüft von</strong>"
+
+#. module: account_move_journal_print
+#: model_terms:ir.ui.view,arch_db:account_move_journal_print.report_journal_entry_document
+msgid "<strong>Date</strong>"
+msgstr "<strong>Datum</strong>"
+
+#. module: account_move_journal_print
+#: model_terms:ir.ui.view,arch_db:account_move_journal_print.report_journal_entry_document
+msgid "<strong>Journal</strong>"
+msgstr "<strong>Journal</strong>"
+
+#. module: account_move_journal_print
+#: model_terms:ir.ui.view,arch_db:account_move_journal_print.report_journal_entry_document
+msgid "<strong>Notes</strong>"
+msgstr "<strong>Notizen</strong>"
+
+#. module: account_move_journal_print
+#: model_terms:ir.ui.view,arch_db:account_move_journal_print.report_journal_entry_document
+msgid "<strong>Partner</strong>"
+msgstr "<strong>Partner</strong>"
+
+#. module: account_move_journal_print
+#: model_terms:ir.ui.view,arch_db:account_move_journal_print.report_journal_entry_document
+msgid "<strong>Prepared by</strong>"
+msgstr "<strong>Erstellt von</strong>"
+
+#. module: account_move_journal_print
+#: model_terms:ir.ui.view,arch_db:account_move_journal_print.report_journal_entry_document
+msgid "<strong>Reference</strong>"
+msgstr "<strong>Referenz</strong>"
+
+#. module: account_move_journal_print
+#: model_terms:ir.ui.view,arch_db:account_move_journal_print.report_journal_entry_document
+msgid "Account"
+msgstr "Konto"
+
+#. module: account_move_journal_print
+#: model_terms:ir.ui.view,arch_db:account_move_journal_print.report_journal_entry_document
+msgid "Amount in Currency"
+msgstr "Betrag in Währung"
+
+#. module: account_move_journal_print
+#: model_terms:ir.ui.view,arch_db:account_move_journal_print.report_journal_entry_document
+msgid "Analytic"
+msgstr "Kostenrechnung"
+
+#. module: account_move_journal_print
+#: model_terms:ir.ui.view,arch_db:account_move_journal_print.report_journal_entry_document
+msgid "Credit"
+msgstr "Haben"
+
+#. module: account_move_journal_print
+#: model_terms:ir.ui.view,arch_db:account_move_journal_print.report_journal_entry_document
+msgid "Debit"
+msgstr "Soll"
+
+#. module: account_move_journal_print
+#: model:ir.model.fields,field_description:account_move_journal_print.field_account_move__display_name
+#: model:ir.model.fields,field_description:account_move_journal_print.field_account_move_line__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: account_move_journal_print
+#: model:ir.model.fields,field_description:account_move_journal_print.field_account_move__id
+#: model:ir.model.fields,field_description:account_move_journal_print.field_account_move_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: account_move_journal_print
+#: model:ir.actions.report,name:account_move_journal_print.action_report_journal_entry
+#: model:ir.model,name:account_move_journal_print.model_account_move
+msgid "Journal Entry"
+msgstr "Journalbuchung"
+
+#. module: account_move_journal_print
+#: model:ir.actions.report,name:account_move_journal_print.action_report_journal_entry_partner_lang
+msgid "Journal Entry (Partner Language)"
+msgstr "Journalbuchung (Sprache des Partners)"
+
+#. module: account_move_journal_print
+#: model:ir.model,name:account_move_journal_print.model_account_move_line
+msgid "Journal Item"
+msgstr "Buchungszeile"
+
+#. module: account_move_journal_print
+#: model_terms:ir.ui.view,arch_db:account_move_journal_print.report_journal_entry_document
+msgid "Label"
+msgstr "Buchungstext"
+
+#. module: account_move_journal_print
+#: model_terms:ir.ui.view,arch_db:account_move_journal_print.report_journal_entry_document
+msgid "Partner"
+msgstr "Partner"
+
+#. module: account_move_journal_print
+#: model_terms:ir.ui.view,arch_db:account_move_journal_print.report_journal_entry_document
+msgid "Prepared by"
+msgstr "Erstellt von"
+
+#. module: account_move_journal_print
+#: model:ir.module.module,shortdesc:base.module_account_move_journal_print
+msgid "Print Journal Entries"
+msgstr ""
+
+#. module: account_move_journal_print
+#: model:ir.module.module,summary:base.module_account_move_journal_print
+msgid ""
+"Print any journal entry as a clean PDF voucher with balance check and signature boxes.\n"
+"    Print Journal Entry, Journal Entry PDF, Journal Voucher Print, Account Move Print,\n"
+"    Journal Entry Report, Accounting Voucher, Mass Print Journal Entries, Debit Credit Report,\n"
+"    Analytic Distribution Print, Signature Block, Draft Watermark, Partner Language Report,\n"
+"    --------\n"
+"    Journal Entry Report, Print Journal Entries Report in Odoo, Journal Voucher Print,\n"
+"    Journal Entry Print, Print Journal Entries (PDF), Journal Entry Report Pro,\n"
+"    Account Move Print, Print Journal Entries, Journal Entry Voucher PDF,\n"
+"    Odoo 20 Community and Enterprise Ready Tool\n"
+"    "
+msgstr ""
+
+#. module: account_move_journal_print
+#: model_terms:ir.ui.view,arch_db:account_move_journal_print.report_journal_entry_document
+msgid "Printed by"
+msgstr "Gedruckt von"
+
+#. module: account_move_journal_print
+#: model_terms:ir.ui.view,arch_db:account_move_journal_print.report_journal_entry_document
+msgid "Total"
+msgstr "Gesamt"
+
+#. module: account_move_journal_print
+#: model_terms:ir.ui.view,arch_db:account_move_journal_print.report_journal_entry_document
+msgid "on"
+msgstr "am"

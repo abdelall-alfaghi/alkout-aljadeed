@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_journal_entry_document">
+        <t t-call="web.external_layout">
+            <t t-set="o" t-value="o.with_context(lang=lang)"/>
+            <t t-set="company_currency" t-value="o.company_currency_id"/>
+            <t t-set="print_lines" t-value="o._journal_print_lines()"/>
+            <t t-set="totals" t-value="o._journal_print_totals()"/>
+            <t t-set="show_amount_currency" t-value="o._journal_print_show_amount_currency()"/>
+            <div class="page o_journal_entry_print" style="position: relative;">
+                <div t-if="o.state != 'posted'" class="o_journal_entry_watermark text-uppercase text-center"
+                     style="position: absolute; top: 260px; left: 0; width: 100%; font-size: 110px; font-weight: bold; color: #dc3545; opacity: 0.12; -webkit-transform: rotate(-30deg); transform: rotate(-30deg);">
+                    <span t-field="o.state"/>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-8">
+                        <h2 class="mb-1">
+                            <span>Journal Entry</span>
+                            <span t-if="o.name and o.name != '/'" t-out="o.name"/>
+                        </h2>
+                    </div>
+                    <div class="col-4 text-end">
+                        <span t-attf-class="badge #{'text-bg-success bg-success' if o.state == 'posted' else 'text-bg-danger bg-danger'} fs-6 px-3 py-2"
+                              t-field="o.state"/>
+                    </div>
+                </div>
+
+                <table class="table table-borderless table-sm mb-3" id="journal_entry_informations">
+                    <tr>
+                        <td style="width: 20%;"><strong>Date</strong></td>
+                        <td style="width: 25%;"><strong>Journal</strong></td>
+                        <td style="width: 30%;"><strong>Reference</strong></td>
+                        <td style="width: 25%;"><strong>Partner</strong></td>
+                    </tr>
+                    <tr>
+                        <td><span t-field="o.date"/></td>
+                        <td><span t-field="o.journal_id"/></td>
+                        <td><span t-out="o.ref or '-'"/></td>
+                        <td><span t-out="o.partner_id.display_name or '-'"/></td>
+                    </tr>
+                </table>
+
+                <table class="table table-sm o_main_table o_journal_entry_lines" style="font-size: 0.85em;">
+                    <thead>
+                        <tr>
+                            <th class="text-start">Account</th>
+                            <th class="text-start">Partner</th>
+                            <th class="text-start">Label</th>
+                            <th class="text-start">Analytic</th>
+                            <th t-if="show_amount_currency" class="text-end">Amount in Currency</th>
+                            <th class="text-end">Debit</th>
+                            <th class="text-end">Credit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="print_lines" t-as="line">
+                            <td>
+                                <span t-out="line.account_id.with_company(o.company_id).code"/>
+                                <span t-out="line.account_id.name"/>
+                            </td>
+                            <td><span t-out="line.partner_id.display_name or ''"/></td>
+                            <td><span t-out="line.name or ''"/></td>
+                            <td>
+                                <div t-foreach="line._journal_print_analytic_labels()" t-as="analytic_label" t-out="analytic_label"/>
+                            </td>
+                            <td t-if="show_amount_currency" class="text-end text-nowrap">
+                                <span t-if="line.currency_id and line.currency_id != company_currency"
+                                      t-out="line.amount_currency"
+                                      t-options="{'widget': 'monetary', 'display_currency': line.currency_id}"/>
+                            </td>
+                            <td class="text-end text-nowrap">
+                                <span t-out="line.debit" t-options="{'widget': 'monetary', 'display_currency': company_currency}"/>
+                            </td>
+                            <td class="text-end text-nowrap">
+                                <span t-out="line.credit" t-options="{'widget': 'monetary', 'display_currency': company_currency}"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr class="fw-bold o_journal_entry_totals" style="border-top: 2px solid #000;">
+                            <td t-att-colspan="5 if show_amount_currency else 4" class="text-end">Total</td>
+                            <td class="text-end text-nowrap">
+                                <span t-out="totals['debit']" t-options="{'widget': 'monetary', 'display_currency': company_currency}"/>
+                            </td>
+                            <td class="text-end text-nowrap">
+                                <span t-out="totals['credit']" t-options="{'widget': 'monetary', 'display_currency': company_currency}"/>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+                <div class="o_journal_entry_balance mb-3">
+                    <t t-if="totals['balanced']">
+                        <span class="text-success fw-bold">&#10003; Balanced</span>
+                        <span class="text-muted">: total debit equals total credit.</span>
+                    </t>
+                    <t t-else="">
+                        <span class="text-danger fw-bold">&#10007; Unbalanced</span>
+                        <span class="text-muted">: difference of</span>
+                        <span class="text-danger fw-bold" t-out="totals['difference']"
+                              t-options="{'widget': 'monetary', 'display_currency': company_currency}"/>
+                    </t>
+                </div>
+
+                <div t-if="not is_html_empty(o.narration)" class="mb-3">
+                    <strong>Notes</strong>
+                    <div t-field="o.narration"/>
+                </div>
+
+                <div class="row small text-muted mb-4">
+                    <div class="col-6">
+                        Prepared by <strong t-out="o.create_uid.name"/>
+                        on <span t-field="o.create_date"/>
+                    </div>
+                    <div class="col-6 text-end">
+                        Printed by <strong t-out="user.name"/>
+                        on <span t-out="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>
+                    </div>
+                </div>
+
+                <table class="table table-borderless o_journal_entry_signatures mt-5" style="page-break-inside: avoid;">
+                    <tr>
+                        <td class="text-center" style="width: 33%;">
+                            <div style="border-top: 1px solid #000; margin: 50px 15px 0 15px; padding-top: 4px;">
+                                <strong>Prepared by</strong>
+                                <div class="small" t-out="o.create_uid.name"/>
+                            </div>
+                        </td>
+                        <td class="text-center" style="width: 34%;">
+                            <div style="border-top: 1px solid #000; margin: 50px 15px 0 15px; padding-top: 4px;">
+                                <strong>Checked by</strong>
+                                <div class="small">&#160;</div>
+                            </div>
+                        </td>
+                        <td class="text-center" style="width: 33%;">
+                            <div style="border-top: 1px solid #000; margin: 50px 15px 0 15px; padding-top: 4px;">
+                                <strong>Approved by</strong>
+                                <div class="small">&#160;</div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_journal_entry">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="lang" t-value="user.lang"/>
+                <t t-call="account_move_journal_print.report_journal_entry_document" t-lang="lang"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_journal_entry_partner_lang">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="lang" t-value="o.partner_id.lang or user.lang"/>
+                <t t-call="account_move_journal_print.report_journal_entry_document" t-lang="lang"/>
+            </t>
+        </t>
+    </template>
+
+</odoo>
